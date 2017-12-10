@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
-curl -o data/education.xls https://www.ers.usda.gov/webdocs/DataFiles/48747/Education.xls?v=42762
+# Usage: get-data <url> <file>
 
-curl -o data/poverty.xls https://www.ers.usda.gov/webdocs/DataFiles/48747/PovertyEstimates.xls?v=42762
+# Uses curl to download data of interest from <url>
+# and save it to <file>
+
+# Arguments:
+#	<url>	A url to a data file to be downloaded.		
+# 	<file>	The directory and filename in which to
+#			save and name the file respectively.
+#			Example: path/to/file.dat
+
+curl -o $2 $1
