@@ -5,7 +5,7 @@
 # Usage: Rscript warngle.R <data/poverty.xls> <data/education.xls> <results/socioeconomic.xls>
 # Arguments:
 #   <data/poverty.xls>              file location of the poverty spreadsheet
-#   <data/poverty.xls>              file location of the education spreadsheet
+#   <data/education.xls>            file location of the education spreadsheet
 #   <results/socioeconomic.csv>     file location of the wrangled data csv
 
 
@@ -17,13 +17,33 @@ education_xls <- args[2]
 socioeconomic_csv <- args[3]
 
 # Load required libraries
+library(tidyverse)
 library(readxl)
 
-#
-education <- read_excel("data/education.xls")
-poverty <- read_excel("data/poverty.xls")
+# Read data into data frames
+education <- read_excel(education_xls, skip = 4, col_names = T)
+poverty <- read_excel(poverty_xls, skip = 3, col_names = T)
 
-output_fileref <- file(socioeconomic_csv)
-writeLines("a", output_fileref)
-close(output_fileref)
+# Extract important data
+
+education <- education %>% 
+    select(fips = "FIPS Code",
+           state = "State",
+           area_name = "Area name",
+           higher_ed_pop = "Bachelor's degree or higher, 2011-2015")
+
+poverty <- poverty %>% 
+    select(fips = "FIPStxt",
+              povert_pop = "POVALL_2015")
+
+
+# We will join the data by the county identification code
+
+socioeconomic <- full_join(education, poverty, by = "fips")
+
+
+# Write the final dataset to file
+
+write_csv(socioeconomic, socioeconomic_csv, na = "", append = FALSE)
+
 
