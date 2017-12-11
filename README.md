@@ -13,12 +13,17 @@ This project requires several programs and packages to be installed. Open a comm
 1. `curl` is a utility to download files from the web. Run `$ curl --version` to see if it exists.
 2. `Rscript` runs instructions for analysis in a `.Rscript` file. Run `$ Rscript --version` to see if it exists.
 3. Several `R` packages are required to perform the analysis. We can check them individually by running
-```
+```bash
 Rscript -e '\"tidyverse\" %in% installed.packages()'
 Rscript -e '\"readxl\" %in% installed.packages()'
 Rscript -e '\"ezknitr\" %in% installed.packages()'
 ```
 which should all return `TRUE`. The `\"` is an escape sequence for `""` that is necessary for Windows users running using git bash. Other users may have to remove the escaping `\`.
+
+4. Create the following directory structure by calling:
+```bash
+mkdir data results doc
+```
 
 
 # Generating the report
