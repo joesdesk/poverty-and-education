@@ -10,9 +10,10 @@ The hypothesis is that education and poverty are negatively correlated. The pair
 # Dependencies
 This project requires several programs and packages to be installed. Open a command line and change the directory to the repository root. Run the scripts to check if you have the required packages.
 
-1. `curl` is a utility to download files from the web. Run `$ curl --version` to see if it exists.
-2. `Rscript` runs instructions for analysis in a `.Rscript` file. Run `$ Rscript --version` to see if it exists.
-3. Several `R` packages are required to perform the analysis. We can check them individually by running
+1. To check if you are in the correct directory, calling `pwd` should give `path/to/poverty-and-education`.
+2. `curl` is a utility to download files from the web. Run `$ curl --version` to see if it exists.
+3. `Rscript` runs instructions for analysis in a `.Rscript` file. Run `$ Rscript --version` to see if it exists.
+4. Several `R` packages are required to perform the analysis. We can check them individually by running
 ```bash
 Rscript -e '\"tidyverse\" %in% installed.packages()'
 Rscript -e '\"readxl\" %in% installed.packages()'
@@ -20,7 +21,7 @@ Rscript -e '\"ezknitr\" %in% installed.packages()'
 ```
 which should all return `TRUE`. The `\"` is an escape sequence for `""` that is necessary for Windows users running using git bash. Other users may have to remove the escaping `\`.
 
-4. Create the following directory structure by calling:
+5. Create the following directory structure by calling:
 ```bash
 mkdir data results doc
 ```
