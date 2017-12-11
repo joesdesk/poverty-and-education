@@ -21,7 +21,7 @@ results/scatter-relation.png: results/socioeconomic.csv
 	
 # Cleans up the data
 	
-all: results/figure.png
+all: results/scatter-relation.png
 
 clean:
 	rm data/*
