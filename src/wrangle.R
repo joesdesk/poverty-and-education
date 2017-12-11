@@ -30,11 +30,11 @@ education <- education %>%
     select(fips = "FIPS Code",
            state = "State",
            area_name = "Area name",
-           higher_ed_pop = "Bachelor's degree or higher, 2011-2015")
+           higher_ed_proportion = "Percent of adults with a bachelor's degree or higher, 2011-2015")
 
 poverty <- poverty %>% 
     select(fips = "FIPStxt",
-              poverty_pop = "POVALL_2015")
+              poverty_proportion = "PCTPOVALL_2015")
 
 
 # We will join the data by the county identification code
