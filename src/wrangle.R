@@ -8,6 +8,9 @@
 #   <data/education.xls>            file location of the education spreadsheet
 #   <results/socioeconomic.csv>     file location of the wrangled data csv
 
+# Author: Jomar Sastrillo
+# Date: December 10, 2017
+
 
 # Extract arguments
 args <- commandArgs(trailingOnly = TRUE)
@@ -26,13 +29,13 @@ poverty <- read_excel(poverty_xls, skip = 3, col_names = T)
 
 # Extract important data
 
-education <- education %>% 
+education <- education %>%
     select(fips = "FIPS Code",
            state = "State",
            area_name = "Area name",
            higher_ed_proportion = "Percent of adults with a bachelor's degree or higher, 2011-2015")
 
-poverty <- poverty %>% 
+poverty <- poverty %>%
     select(fips = "FIPStxt",
               poverty_proportion = "PCTPOVALL_2015")
 
@@ -45,5 +48,3 @@ socioeconomic <- full_join(education, poverty, by = "fips")
 # Write the final dataset to file
 
 write_csv(socioeconomic, socioeconomic_csv, na = "", append = FALSE)
-
-
