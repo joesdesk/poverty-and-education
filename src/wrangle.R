@@ -34,7 +34,7 @@ education <- education %>%
 
 poverty <- poverty %>% 
     select(fips = "FIPStxt",
-              povert_pop = "POVALL_2015")
+              poverty_pop = "POVALL_2015")
 
 
 # We will join the data by the county identification code
