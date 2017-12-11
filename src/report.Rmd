@@ -1,5 +1,7 @@
 ---
 title: "Relating Poverty and Higher Education"
+author: "Jomar Sastrillo"
+date: "December 10, 2017"
 output: github_document
 ---
 
