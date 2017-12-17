@@ -6,26 +6,45 @@ The study examines data that the US government [1] has made available. The econo
 
 The hypothesis is that education and poverty are negatively correlated. The pairwise relationship between the education rates and poverty rates can be quantified by the correlation and their dependence or lack of can be shown on a scatter plot.
 
+This report shows that the simple assumption of a linear relationship is insufficient to describe the observations. However, a trend is that poverty rates are lower for counties whose populations have attained college degrees at higher rates, thus reinforcing the belief that education is a path out of poverty.
+
+
 
 # Dependencies
 
-This project requires several programs and packages to be installed. Open a command line and change the directory to the repository root. Run the scripts to check if you have the required packages.
-
-1. To check if you are in the correct directory, calling `pwd` should give `path/to/poverty-and-education`.
-2. `curl` is a utility to download files from the web. Run `$ curl --version` to see if it exists.
-3. `Rscript` runs instructions for analysis in a `.Rscript` file. Run `$ Rscript --version` to see if it exists.
-4. Several `R` packages are required to perform the analysis. We can check them individually by running
-```bash
-Rscript -e '\"tidyverse\" %in% installed.packages()'
-Rscript -e '\"readxl\" %in% installed.packages()'
-Rscript -e '\"ezknitr\" %in% installed.packages()'
+## Make
+This project requires several programs and packages to be installed. Dependencies can be easily checked by opening a command line and changing directory such that the command
 ```
-which should all return `TRUE`. The `\"` is an escape sequence for `""` that is necessary for Windows users running using git bash. Other users may have to remove the escaping `\`.
-
-5. Create the following directory structure by calling:
-```bash
-mkdir data results doc
+pwd
 ```
+gives
+```
+the/path/to/poverty-and-education
+```
+
+The project requires `make` to build which can be checked by typing
+```
+make --version
+```
+If a version number is returned, the remaining dependencies can be checked with
+```
+make check
+```
+which lists the dependencies and whether they are accessible.
+
+## Packrat
+The project can also be built from within Rstudio by opening the `poverty-and-education.Rproj` file at the project root directory. `packrat` should install the missing R packages if they are missing. If `packrat` is missing, it can install itself. One can navigate to the Rstudio console and run the `make` commands from there (see "Dependencies: Make" and "Generating the report").
+
+## Docker
+A docker image container that contains the required packages and utilities can be pulled by the name `sastrill/poverty-and-education` with a Docker program. For security reasons, the project itself is not on the docker image. Thus, it must be "linked" from a folder on your computer to the "ephemeral" container. The code below performs the link and the build process. No `make check` is necessary since the Docker image was designed with all the necessary dependencies.
+
+```
+docker run -it --rm -v "/c/path/to/poverty-and-education":/home/poverty-and-education sastrill/poverty-and-education make all -C /home/poverty-and-education
+```
+
+_Note:_ Users should take note to surround first path with quotes (double quotes specifically) if the path contains a space. The root directory for Windows users in git bash form is `/c/` instead of `C:\`.
+
+Once built, the final report resides in [doc/report.md](doc/report.md).
 
 
 # Generating the report
