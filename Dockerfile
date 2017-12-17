@@ -9,6 +9,6 @@ FROM rocker/tidyverse
 RUN apt-get install -y curl
 
 # then install the ezknitr packages
-RUN Rscript -e "install.packages('ezknitr', repos = 'https://mran.revolutionanalytics.com/snapshot/2017-12-11')"
+RUN Rscript -e "install.packages('ezknitr', repos = 'http://cran.us.r-project.org')"
 RUN Rscript -e "install.packages('readxl', repos = 'http://cran.us.r-project.org')"
 RUN Rscript -e "install.packages('packrat', repos = 'http://cran.us.r-project.org')"
