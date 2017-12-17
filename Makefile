@@ -1,7 +1,7 @@
 # Data to be downloaded
 
 directory:
-	mkdir data results doc
+	#mkdir data results doc
 
 data/education.xls: directory
 	bash src/get-data.sh https://www.ers.usda.gov/webdocs/DataFiles/48747/Education.xls?v=42762 data/education.xls
@@ -25,7 +25,7 @@ results/scatter-relation.png: results/socioeconomic.csv
 # Generate the report
 
 doc/final.md: results/scatter-relation.png
-	Rscript -e 'ezknitr::ezknit(\"src/report.Rmd\", out_dir=\"doc\", keep_html = FALSE)'
+	Rscript -e 'ezknitr::ezknit("src/report.Rmd", out_dir="doc", keep_html = FALSE)'
 
 
 # Alias for making the final report, which requires all dependent files
