@@ -16,7 +16,8 @@ The analysis takes data from the US department of agriculture[1] and extracts fo
 
 ![](../results/scatter-relation.png)
 
-The fit itself is poor, an innacurate model of the data and serves only to show a trend. The particular trend is that lower poverty rates follow higher education. 
+One of the simplest models for this data set can be found using a linear regression. Using `ggplot` we can sketch the linear regression line through the data. It doesn't take much analysis to determine that the linear model is poor model for the data. From the scatter plot, we can see that there appears to be some sort of reciprocal relationship for the lowest poverty counties. This suggests to us that the next course of analysis is to try to find a model for the minimum poverty level that can be attained by a county with a given graduation rate. If such a minimum curve can be found, then we might treat the distance between points to the minimum curve to be some measure of a county's inefficiency in reducing poverty.
+ 
 
 # Sources
 * [1] County-level Data Sets . United States Department of Agriculture: Economic Research Service. Accessed 2017. URL: https://www.ers.usda.gov/data-products/county-level-data-sets/
