@@ -37,10 +37,31 @@ clean:
 
 # Checks if user has required command line utilities and R packages
 check:
-	bash --version
-	curl --version
-	Rscript --version
-
-	Rscript -e "'tidyverse' %in% installed.packages()"
-	Rscript -e "'readxl' %in% installed.packages()"
-	Rscript -e "'ezknitr' %in% installed.packages()"
+	@echo "Checking for bash..."
+	@bash --version
+	@which bash
+	@echo ""
+	
+	@echo "Checking for curl..."
+	@curl --version
+	@which curl
+	@echo ""
+	
+	@echo "Checking for Rscript..."
+	@Rscript --version
+	@which Rscript
+	@echo ""
+	
+	@echo "Checking R libraries:"
+	
+	@echo "tidyverse installed?"
+	@Rscript -e "'tidyverse' %in% installed.packages()"
+	@echo ""
+	
+	@echo "readxl installed?"
+	@Rscript -e "'readxl' %in% installed.packages()"
+	@echo ""
+	
+	@echo "ezknitr installed?"
+	@Rscript -e "'ezknitr' %in% installed.packages()"
+	@echo ""
