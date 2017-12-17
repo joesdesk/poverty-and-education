@@ -1,6 +1,8 @@
 # Makefile for poverty-and-education
 # by Jomar Sastrillo (Dec 17, 2017)
 
+# See README.md: Generating the report
+
 # Data to be downloaded
 data/education.xls:
 	bash src/get-data.sh https://www.ers.usda.gov/webdocs/DataFiles/48747/Education.xls?v=42762 data/education.xls
@@ -41,27 +43,27 @@ check:
 	@bash --version
 	@which bash
 	@echo ""
-	
+
 	@echo "Checking for curl..."
 	@curl --version
 	@which curl
 	@echo ""
-	
+
 	@echo "Checking for Rscript..."
 	@Rscript --version
 	@which Rscript
 	@echo ""
-	
+
 	@echo "Checking R libraries:"
-	
+
 	@echo "tidyverse installed?"
 	@Rscript -e "'tidyverse' %in% installed.packages()"
 	@echo ""
-	
+
 	@echo "readxl installed?"
 	@Rscript -e "'readxl' %in% installed.packages()"
 	@echo ""
-	
+
 	@echo "ezknitr installed?"
 	@Rscript -e "'ezknitr' %in% installed.packages()"
 	@echo ""
