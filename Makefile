@@ -21,6 +21,7 @@ results/socioeconomic.csv: data/education.xls data/poverty.xls
 results/scatter-relation.png: results/socioeconomic.csv
 	Rscript src/analyze.R results/socioeconomic.csv results/scatter-relation.png
 
+	
 # Generate the report
 
 doc/final.md: results/scatter-relation.png
@@ -35,6 +36,6 @@ all: doc/final.md
 # Cleans up the data
 
 clean:
-	rm data/*
-	rm results/*
-	rm doc/*
+	rm -f data/*
+	rm -f results/*
+	rm -f doc/*
