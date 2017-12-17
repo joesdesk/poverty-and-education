@@ -8,6 +8,7 @@ The hypothesis is that education and poverty are negatively correlated. The pair
 
 
 # Dependencies
+
 This project requires several programs and packages to be installed. Open a command line and change the directory to the repository root. Run the scripts to check if you have the required packages.
 
 1. To check if you are in the correct directory, calling `pwd` should give `path/to/poverty-and-education`.
