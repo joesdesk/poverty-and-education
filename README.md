@@ -49,6 +49,11 @@ Once built, the final report resides in [doc/report.md](doc/report.md).
 
 # Generating the report
 
+The diagram below illustrates the dependency tree.
+
+![Makefile.png](Makefile.png)
+
+
 The data is in the form of two excel files:
   * https://www.ers.usda.gov/data-products/county-level-data-sets/poverty/
   * https://www.ers.usda.gov/data-products/county-level-data-sets/education/
